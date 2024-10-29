@@ -1,0 +1,84 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.ShowPropertiesModel
+
+@{
+    ViewData["Title"] = "ShowProperties";
+}
+
+<h1>ShowProperties</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="AddProperty">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].PropertyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Number_of_Bedrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].Number_of_Baths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property[0].image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Property) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number_of_Bedrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number_of_Baths)
+            </td>
+            <td>
+
+                <img  height="120px" width="120px" src="~/uploaded_images/@item.image"/>
+            </td>
+            <td>
+                <a asp-page="./UpdateProperty" class="btn btn-primary" asp-route-id="@item.Id">Update</a> |
+                <a asp-page="./DeleteProperty" class="btn btn-danger" asp-route-id="@item.Id" asp-route-imagename="@item.image" >Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

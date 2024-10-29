@@ -1,0 +1,47 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.UpdateSocialNetworksModel
+
+@{
+    ViewData["Title"] = "Update Social Networks";
+}
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+        <h4>SocialNetworks</h4>
+
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SocialNetworks.Id" />
+            <div class="form-group">
+                <label asp-for="SocialNetworks.Facebook" class="control-label"></label>
+                <input asp-for="SocialNetworks.Facebook" class="form-control" />
+                <span asp-validation-for="SocialNetworks.Facebook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SocialNetworks.Twitter" class="control-label"></label>
+                <input asp-for="SocialNetworks.Twitter" class="form-control" />
+                <span asp-validation-for="SocialNetworks.Twitter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SocialNetworks.YouTube" class="control-label"></label>
+                <input asp-for="SocialNetworks.YouTube" class="form-control" />
+                <span asp-validation-for="SocialNetworks.YouTube" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SocialNetworks.LinkedIn" class="control-label"></label>
+                <input asp-for="SocialNetworks.LinkedIn" class="form-control" />
+                <span asp-validation-for="SocialNetworks.LinkedIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a asp-page="./ShowSocialNetworks">Back to List</a>
+        </div>
+</div>
+
+</div>
+
+

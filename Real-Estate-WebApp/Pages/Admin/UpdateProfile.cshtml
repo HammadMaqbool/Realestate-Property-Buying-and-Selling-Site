@@ -1,0 +1,49 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.UpdateProfileModel
+
+@{
+    ViewData["Title"] = "UpdateProfile";
+}
+
+
+
+<div class="row justify-content-center d-flex">
+    <div class="col-md-4">
+        <h1>UpdateProfile</h1>
+
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Profile.Id" />
+            <div class="form-group">
+                <label asp-for="Profile.Address" class="control-label"></label>
+                <input asp-for="Profile.Address" class="form-control" />
+                <span asp-validation-for="Profile.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Phone" class="control-label"></label>
+                <input asp-for="Profile.Phone" class="form-control" />
+                <span asp-validation-for="Profile.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.Email" class="control-label"></label>
+                <input asp-for="Profile.Email" class="form-control" />
+                <span asp-validation-for="Profile.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profile.WhatsApp" class="control-label"></label>
+                <input asp-for="Profile.WhatsApp" class="form-control" />
+                <span asp-validation-for="Profile.WhatsApp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a asp-page="./ShowProfile">Back to List</a>
+        </div>
+    </div>
+</div>
+
+
+
+

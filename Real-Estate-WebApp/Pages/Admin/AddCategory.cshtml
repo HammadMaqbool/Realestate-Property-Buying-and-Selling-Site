@@ -1,0 +1,28 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.AddCategoryModel
+@{
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>
+            Please Add Category
+        </h2>
+        <form method="post" class="row g-3">
+            <div class="col-md-12">
+                <label class="form-label"> Name</label>
+                <input class="form-control" asp-for="Category.Name" />
+                <span asp-validation-for="Category.Name" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Slug</label>
+                <input class="form-control" asp-for="Category.slug" />
+                <span asp-validation-for="Category.slug" class="text-danger"></span>
+
+            </div>
+            <div class="col-md-12 mt-3">
+                <input class="btn btn-success" value="Add Category" type="submit"/>
+            </div>
+        </form>
+    </div>
+</div>

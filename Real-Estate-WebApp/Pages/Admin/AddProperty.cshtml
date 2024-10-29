@@ -1,0 +1,79 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.AddPropertyModel
+@{
+}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>
+            Please Add Property
+        </h2>
+        <form method="post" enctype="multipart/form-data" class="row g-3">
+            <div class="col-md-12">
+                <label class="form-label"> Title</label>
+                <input class="form-control" asp-for="Property.Title" />
+                <span asp-validation-for="Property.Title" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Property Type</label>
+                <input class="form-control" asp-for="Property.PropertyType" />
+                <span asp-validation-for="Property.PropertyType" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Price</label>
+                <input class="form-control" asp-for="Property.Price" />
+                <span asp-validation-for="Property.Price" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Address</label>
+                <input class="form-control" asp-for="Property.Address" />
+                <span asp-validation-for="Property.Address" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Area</label>
+                <input class="form-control" asp-for="Property.Area" />
+                <span asp-validation-for="Property.Area" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Number of Bedrooms</label>
+                <input class="form-control" asp-for="Property.Number_of_Bedrooms" />
+                <span asp-validation-for="Property.Number_of_Bedrooms" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Number of Baths</label>
+                <input class="form-control" asp-for="Property.Number_of_Baths" />
+                <span asp-validation-for="Property.Number_of_Baths" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Featured</label>
+                <select asp-for="Property.Featured" class="form-control"> 
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label"> Category</label>
+
+                <select asp-for="Property.Category" class="form-control">
+                    @foreach(var item in Model.Categories)
+                    {
+                        <option value="@item.Name">@item.Name</option>
+                    }
+                </select>
+
+                <span asp-validation-for="Property.Category" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-12">
+                <label class="form-label"> Image</label>
+                <input class="form-control" asp-for="Property.Photo" />
+                <span asp-validation-for="Property.Photo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-12 mt-3">
+                <input class="btn btn-success" value="Add Property" type="submit" />
+            </div>
+        </form>
+    </div>
+</div>

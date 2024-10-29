@@ -1,0 +1,40 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.ShowCategoriesModel
+@{
+}
+
+<div class="row justify-content-center d-flex">
+    <div class="col-md-8">
+        <h2>
+            List of Categories
+        </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col" colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model.Categories)
+                {
+                    <tr>
+                        <th scope="row">@category.Id</th>
+                        <td>@category.Name</td>
+                        <td>@category.slug</td>
+                        <td>
+                            <a class="btn btn-primary" asp-page="UpdateCategory" asp-route-Id="@category.Id">Update</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" asp-page-handler="Delete" asp-route-Id="@category.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+                
+                
+            </tbody>
+        </table>
+    </div>
+</div>

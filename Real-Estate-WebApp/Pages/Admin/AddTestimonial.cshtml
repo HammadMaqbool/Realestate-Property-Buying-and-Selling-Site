@@ -1,0 +1,36 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.AddTestimonialModel
+@{
+}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>
+            Please Add Testimonial
+        </h2>
+        <form method="post" enctype="multipart/form-data" class="row g-3">
+            <div class="col-md-12">
+                <label class="form-label"> Review</label>
+                <input class="form-control" asp-for="Testimonial.Review" />
+                <span asp-validation-for="Testimonial.Review" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Name</label>
+                <input class="form-control" asp-for="Testimonial.Name" />
+                <span asp-validation-for="Testimonial.Name" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Profession</label>
+                <input class="form-control" asp-for="Testimonial.Profession" />
+                <span asp-validation-for="Testimonial.Profession" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label"> Image</label>
+                <input class="form-control" asp-for="Testimonial.Photo" />
+                <span asp-validation-for="Testimonial.Photo" class="text-danger"></span>
+            </div>
+            <div class="col-md-12 mt-3">
+                <input class="btn btn-success" value="Add Testimonial" type="submit" />
+            </div>
+        </form>
+    </div>
+</div>

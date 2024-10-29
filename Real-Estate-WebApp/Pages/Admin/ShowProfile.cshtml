@@ -1,0 +1,53 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.ShowProfileModel
+
+@{
+    ViewData["Title"] = "ShowProfile";
+}
+
+<h1>ShowProfile</h1>
+
+<p>
+    <a asp-page="AddProfile" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile[0].WhatsApp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Profile) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhatsApp)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-page="./UpdateProfile" asp-route-id="@item.Id">Update</a> |
+                <a class="btn btn-danger" asp-page="./DeleteProfile" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

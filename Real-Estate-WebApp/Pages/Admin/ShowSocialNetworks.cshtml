@@ -1,0 +1,53 @@
+﻿@page
+@model Real_Estate_WebApp.Pages.Admin.ShowSocialNetworksModel
+
+@{
+    ViewData["Title"] = "ShowSocialNetworks";
+}
+
+<h1>ShowSocialNetworks</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="AddSocialNetworks">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialNetworks[0].Facebook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialNetworks[0].Twitter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialNetworks[0].YouTube)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialNetworks[0].LinkedIn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SocialNetworks) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facebook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Twitter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YouTube)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinkedIn)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-page="./UpdateSocialNetworks" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-danger" asp-page="./DeleteSocialNetworks" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
