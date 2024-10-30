@@ -17,6 +17,14 @@ public class UpdateCategoryModel : PageModel
     }
     public void OnGet(int Id)
     {
+        if (HttpContext.Session.GetString("flag") != "true")
+        {
+            Response.Redirect("/Admin/Login");
+        }
+        else
+        {
+            ViewData["username"] = HttpContext.Session.GetString("Name");
+        }
         Category = db.tbl_Category.Find(Id);
     }
 

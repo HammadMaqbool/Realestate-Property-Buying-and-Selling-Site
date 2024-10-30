@@ -3,17 +3,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Real_Estate_WebApp.Pages.Admin
 {
-    public class IndexModel : PageModel
+    public class LogoutModel : PageModel
     {
         public void OnGet()
         {
-            if (HttpContext.Session.GetString("flag") != "true")
+            if(HttpContext.Session.IsAvailable)
             {
+                HttpContext.Session.Clear();
                 Response.Redirect("/Admin/Login");
-            }
-            else
-            {
-                ViewData["username"] = HttpContext.Session.GetString("Name");
             }
         }
     }

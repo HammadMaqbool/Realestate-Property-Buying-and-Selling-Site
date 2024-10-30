@@ -24,6 +24,14 @@ namespace Real_Estate_WebApp.Pages.Admin
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            if (HttpContext.Session.GetString("flag") != "true")
+            {
+                Response.Redirect("/Admin/Login");
+            }
+            else
+            {
+                ViewData["username"] = HttpContext.Session.GetString("Name");
+            }
             if (id == null)
             {
                 return NotFound();

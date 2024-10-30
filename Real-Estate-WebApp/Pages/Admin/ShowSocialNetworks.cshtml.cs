@@ -23,6 +23,14 @@ namespace Real_Estate_WebApp.Pages.Admin
 
         public async Task OnGetAsync()
         {
+            if (HttpContext.Session.GetString("flag") != "true")
+            {
+                Response.Redirect("/Admin/Login");
+            }
+            else
+            {
+                ViewData["username"] = HttpContext.Session.GetString("Name");
+            }
             SocialNetworks = await _context.tbl_SocialNetworks.ToListAsync();
         }
     }

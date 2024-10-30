@@ -22,6 +22,14 @@ public class AddPropertyModel : PageModel
     }
     public void OnGet()
     {
+        if (HttpContext.Session.GetString("flag") != "true")
+        {
+            Response.Redirect("/Admin/Login");
+        }
+        else
+        {
+            ViewData["username"] = HttpContext.Session.GetString("Name");
+        }
         Categories = db.tbl_Category.ToList();
     }
 

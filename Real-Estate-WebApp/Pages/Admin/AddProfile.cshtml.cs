@@ -21,6 +21,14 @@ namespace Real_Estate_WebApp.Pages.Admin
 
         public IActionResult OnGet()
         {
+            if (HttpContext.Session.GetString("flag") != "true")
+            {
+                Response.Redirect("/Admin/Login");
+            }
+            else
+            {
+                ViewData["username"] = HttpContext.Session.GetString("Name");
+            }
             return Page();
         }
 

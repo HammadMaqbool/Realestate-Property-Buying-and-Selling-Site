@@ -23,6 +23,14 @@ namespace Real_Estate_WebApp.Pages.Admin
 
         public async Task OnGetAsync()
         {
+            if (HttpContext.Session.GetString("flag") != "true")
+            {
+                Response.Redirect("/Admin/Login");
+            }
+            else
+            {
+                ViewData["username"] = HttpContext.Session.GetString("Name");
+            }
             Testimonial = await _context.tbl_Testimonials.ToListAsync();
         }
     }

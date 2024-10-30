@@ -9,6 +9,8 @@ builder.Services.AddRazorPages();
 string conString = builder.Configuration.GetConnectionString("conString");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conString));
 
+builder.Services.AddSession(); // this will the session service into the site;
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +23,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 

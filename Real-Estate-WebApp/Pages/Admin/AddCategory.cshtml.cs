@@ -10,13 +10,23 @@ public class AddCategoryModel : PageModel
 
     [BindProperty]
     public Category Category { get; set; }
+
     public AddCategoryModel(AppDbContext _db)
     {
         db = _db;
     }
 
-    
-
+    public void OnGet()
+    {
+      if(HttpContext.Session.GetString("flag") !="true")
+        {
+            Response.Redirect("/Admin/Login");
+        }
+      else
+        {
+            ViewData["username"] = HttpContext.Session.GetString("Name");
+        }
+    }
     public IActionResult OnPost()
     {
         if(ModelState.IsValid)

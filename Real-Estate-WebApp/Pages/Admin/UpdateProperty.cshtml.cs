@@ -22,6 +22,14 @@ public class UpdatePropertyModel : PageModel
     }
     public void OnGet(int Id)
     {
+        if (HttpContext.Session.GetString("flag") != "true")
+        {
+            Response.Redirect("/Admin/Login");
+        }
+        else
+        {
+            ViewData["username"] = HttpContext.Session.GetString("Name");
+        }
         Property = db.tbl_Property.Find(Id);
         Categories = db.tbl_Category.ToList();
     }
